@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ProgressView">
+        <attr name="circleWidth" format="dimension"/>
+        <attr name="underColor" format="color|reference"/>
+        <attr name="percentTextSize" format="dimension"/>
+        <attr name="percentTextColor" format="color|reference"/>
+        <attr name="isRestartProgress" format="boolean"/>
+        <attr name="lineWidth" format="dimension"/>
+        <attr name="symbolSize" format="dimension"/>
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.hzw.progressview.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.hzw.progressview.ProgressView
+            android:id="@+id/progressView1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:circleWidth="25dp"
+            app:lineWidth="2dp"/>
+
+        <com.hzw.progressview.ProgressView
+            android:id="@+id/progressView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp"
+            app:circleWidth="75dp"
+            app:percentTextColor="@android:color/white"
+            app:percentTextSize="50sp"
+            app:symbolSize="30sp"
+            app:underColor="#E0E0E0"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_changeValue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:text="哈哈"/>
+</LinearLayout>
