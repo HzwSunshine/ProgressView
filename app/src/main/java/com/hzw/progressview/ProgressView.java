@@ -40,6 +40,7 @@ public class ProgressView extends View {
     private float minValue;//最小值
     private TimeInterpolator timeValue;//动画差值器
     private int[] shaderColor;//渲染颜色
+    private Shader mShader;
 
     public ProgressView(Context context) {
         super(context);
@@ -87,7 +88,7 @@ public class ProgressView extends View {
         canvas.drawArc(rectF, 0, 360, false, mPaint);
 
         //画环形
-        setShaderColor();
+        mPaint.setShader(mShader);
         //mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setStrokeWidth(strokeWidth - lineWidth);
         canvas.drawArc(rectF, 270, angle, false, mPaint);
@@ -115,14 +116,14 @@ public class ProgressView extends View {
         canvas.drawText("%", (width + indexW) / 2.0f, (height + indexFinalH) / 2.0f, mPaint);
     }
 
-    private void setShaderColor() {
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
         int[] color = new int[]{Color.parseColor("#FFBF80"), Color.parseColor("#FF8080")};
         color = shaderColor == null ? color : shaderColor;
-        //使用矩阵将Shader旋转-90度
         mMatrix.setRotate(-90, getWidth() / 2, getHeight() / 2);
-        Shader shader = new SweepGradient(getWidth() / 2, getHeight() / 2, color, null);
-        shader.setLocalMatrix(mMatrix);
-        mPaint.setShader(shader);
+        mShader = new SweepGradient(getWidth() / 2, getHeight() / 2, color, null);
+        mShader.setLocalMatrix(mMatrix);
     }
 
     private void updateProgress(float start, float end) {
